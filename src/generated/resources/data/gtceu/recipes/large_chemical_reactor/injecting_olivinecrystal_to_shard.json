@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/olivine"
+            "tag": "forge:crystals/olivine"
           }
         },
         "maxChance": 10000,

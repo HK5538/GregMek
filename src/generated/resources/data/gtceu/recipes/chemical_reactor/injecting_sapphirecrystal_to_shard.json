@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/sapphire"
+            "tag": "forge:crystals/sapphire"
           }
         },
         "maxChance": 10000,

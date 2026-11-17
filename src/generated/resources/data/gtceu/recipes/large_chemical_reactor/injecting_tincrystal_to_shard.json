@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/tin"
+            "tag": "forge:crystals/tin"
           }
         },
         "maxChance": 10000,

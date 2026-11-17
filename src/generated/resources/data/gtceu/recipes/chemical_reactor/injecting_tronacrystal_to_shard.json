@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/trona"
+            "tag": "forge:crystals/trona"
           }
         },
         "maxChance": 10000,

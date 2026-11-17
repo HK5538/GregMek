@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/salt"
+            "tag": "forge:crystals/salt"
           }
         },
         "maxChance": 10000,

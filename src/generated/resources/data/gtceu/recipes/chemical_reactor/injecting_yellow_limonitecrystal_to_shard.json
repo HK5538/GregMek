@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/yellow_limonite"
+            "tag": "forge:crystals/yellow_limonite"
           }
         },
         "maxChance": 10000,

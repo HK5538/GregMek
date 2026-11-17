@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/garnet_sand"
+            "tag": "forge:crystals/garnet_sand"
           }
         },
         "maxChance": 10000,

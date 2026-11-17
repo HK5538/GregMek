@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/granitic_mineral_sand"
+            "tag": "forge:crystals/granitic_mineral_sand"
           }
         },
         "maxChance": 10000,

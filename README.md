@@ -47,22 +47,31 @@ This repo is a fork of GregMek targeting GTCEu 1.4.4 on Minecraft 1.20.1 / Forge
 **处理链**
 
 ```
-原矿/粗矿/矿石 ──洗矿(硫酸)──> 污浊浆液 ──化学浴(水)──> 纯净浆液 ──高压釜──> 晶体
-                                                                    │
-粗矿/矿石 ──压射(盐酸)──> 碎片 ──提纯(氧气)──> 碎块 ──粉碎──> 污浊粉 ──富集──> 纯净粉
+矿石 ──化学反应釜(硫酸100mB)──> 污浊浆液 1000mB ──搅拌机(水500mB/100mB)──> 纯净浆液 ──高压釜(200mB)──> 晶体
+                                                                                    │
+矿石/粗矿 ──化学反应釜(盐酸)──> 碎片 ──化学反应釜(氧气)──> 碎块 ──粉碎──> 污浊粉 ──富集──> 纯净粉
 ```
 
-共生成 **2971 个配方文件**，全部随仓库提交在 `src/generated/resources` 下。
+> 机器选择是按 GTCEu 各机器的槽位上限定的：洗矿厂流体输出槽为 0、化学浸洗机流体输入槽为 1，都装不下「矿+酸→浆液」「浆液+水→浆液」这两道工序，因此溶解放在化学反应釜（3 流体进 / 2 流体出），洗涤放在搅拌机（2 流体进 / 1 流体出）。
 
-## 相对上游的改动 / Changes from upstream
+**倍矿比例**
 
-1. **依赖锁定**：GTCEu `7.0.0 → 1.4.4`、LDLib `1.0.40.b → 1.0.28.a`、Mekanism `10.4.9.61 → 10.4.16.80`、Forge `47.4.6 → 47.4.16`
-2. **`FluidStorageKey` 签名适配**：GTCEu 1.4.x 的第二个参数是 `String tagKey`，7.x 才是 `TagKey<Fluid>`
-3. **配方流体类型适配**：GTCEu 1.4.x 的 `GTRecipeBuilder.inputFluids/outputFluids` 接收 LDLib 的 `FluidStack`，尚未迁移到 Forge 的 `FluidStack`
-4. **修复配方数据丢失**：`GregMekRecipeProvider` 丢弃了 `DataProvider.saveStable(...)` 返回的 future，而落盘是异步的，数据生成一结束 JVM 退出就会丢掉排队中的写入（实测 2971 个配方只有约 200 个真正落盘）。改为 `.join()` 同步等待后全部正常输出
-5. **修复污浊浆液注册名**：`"dirty_slurry" + name` 会得到 `dirty_slurryiron`，修正为 `dirty_slurry_iron`
-6. **单材料容错**：某个材料生成配方出错时只记录日志并跳过，不再中断整体数据生成
-7. **补充依赖声明**：`mods.toml` 增加 `gtceu` / `ldlib` / `mekanism` / `forge` 的版本约束
+四条路线对齐 Mekanism 原版的阶梯，全部 110 种材料一致：
+
+| 路线 | 机器 | 每 1 个矿石产量 |
+| --- | --- | --- |
+| 富集 | 富集仓 | 2 份粉尘（2x） |
+| 提纯 | 提纯仓 | 3 碎块 → 3 份粉尘（3x） |
+| 压射 | 压射仓 | 4 碎片 → 4 份粉尘（4x） |
+| 化学链 | 化学反应釜 → 搅拌机 → 高压釜 | 5 晶体 → 5 份粉尘（5x） |
+
+作为参照：GTCEu 原版矿石处理（粉碎机→洗矿→离心）约 2x，Mekanism 原版化学链为 5x。本模组的化学链完全复刻后者的 1000mB / 1:5 / 200mB 比例，因此倍率与原版 Mekanism 一致。
+
+共生成 **3190 个配方文件**（110 种材料 × 29 条，其中化学反应釜的 8 条会自动复制一份到大化反），全部随仓库提交在 `src/generated/resources` 下。
+
+## 更新日志 / Changelog
+
+各版本的改动、修复与已知问题请见 [Releases](https://github.com/HK5538/GregMek/releases) 页面，发行说明中随附可直接下载的 jar。
 
 ## 构建 / Building
 
@@ -72,7 +81,7 @@ This repo is a fork of GregMek targeting GTCEu 1.4.4 on Minecraft 1.20.1 / Forge
 ./gradlew build
 ```
 
-产物：`build/libs/gregmek-1.0.1.jar`
+产物：`build/libs/gregmek-1.0.3.jar`
 
 仓库已提交 `src/generated/resources`，所以直接 `build` 就能得到包含全部配方的 jar。如果修改了材料或配方生成逻辑，重新跑一次数据生成即可：
 

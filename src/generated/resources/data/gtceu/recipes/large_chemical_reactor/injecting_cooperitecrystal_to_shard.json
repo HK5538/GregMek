@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/cooperite"
+            "tag": "forge:crystals/cooperite"
           }
         },
         "maxChance": 10000,

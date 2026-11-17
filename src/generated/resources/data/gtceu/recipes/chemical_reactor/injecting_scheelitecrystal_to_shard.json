@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/scheelite"
+            "tag": "forge:crystals/scheelite"
           }
         },
         "maxChance": 10000,

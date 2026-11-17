@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/basaltic_mineral_sand"
+            "tag": "forge:crystals/basaltic_mineral_sand"
           }
         },
         "maxChance": 10000,

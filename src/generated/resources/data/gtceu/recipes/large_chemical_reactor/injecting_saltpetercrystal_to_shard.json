@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/saltpeter"
+            "tag": "forge:crystals/saltpeter"
           }
         },
         "maxChance": 10000,

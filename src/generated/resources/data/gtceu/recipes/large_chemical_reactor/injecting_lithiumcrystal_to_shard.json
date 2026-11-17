@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/lithium"
+            "tag": "forge:crystals/lithium"
           }
         },
         "maxChance": 10000,

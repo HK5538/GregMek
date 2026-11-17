@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/cobaltite"
+            "tag": "forge:crystals/cobaltite"
           }
         },
         "maxChance": 10000,

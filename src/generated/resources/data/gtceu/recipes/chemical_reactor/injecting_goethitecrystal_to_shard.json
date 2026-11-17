@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/goethite"
+            "tag": "forge:crystals/goethite"
           }
         },
         "maxChance": 10000,

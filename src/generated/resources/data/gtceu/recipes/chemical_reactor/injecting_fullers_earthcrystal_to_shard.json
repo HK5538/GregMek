@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/fullers_earth"
+            "tag": "forge:crystals/fullers_earth"
           }
         },
         "maxChance": 10000,

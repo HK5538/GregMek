@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/vanadium_magnetite"
+            "tag": "forge:crystals/vanadium_magnetite"
           }
         },
         "maxChance": 10000,

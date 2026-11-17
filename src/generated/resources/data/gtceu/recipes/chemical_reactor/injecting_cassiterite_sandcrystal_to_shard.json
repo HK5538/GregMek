@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/cassiterite_sand"
+            "tag": "forge:crystals/cassiterite_sand"
           }
         },
         "maxChance": 10000,

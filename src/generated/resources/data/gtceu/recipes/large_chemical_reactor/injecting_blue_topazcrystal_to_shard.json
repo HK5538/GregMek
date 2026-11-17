@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/blue_topaz"
+            "tag": "forge:crystals/blue_topaz"
           }
         },
         "maxChance": 10000,

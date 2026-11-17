@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/sphalerite"
+            "tag": "forge:crystals/sphalerite"
           }
         },
         "maxChance": 10000,

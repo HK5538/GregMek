@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/green_sapphire"
+            "tag": "forge:crystals/green_sapphire"
           }
         },
         "maxChance": 10000,

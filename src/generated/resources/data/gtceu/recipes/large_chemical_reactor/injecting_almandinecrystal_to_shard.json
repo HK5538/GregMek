@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/almandine"
+            "tag": "forge:crystals/almandine"
           }
         },
         "maxChance": 10000,

@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/barite"
+            "tag": "forge:crystals/barite"
           }
         },
         "maxChance": 10000,

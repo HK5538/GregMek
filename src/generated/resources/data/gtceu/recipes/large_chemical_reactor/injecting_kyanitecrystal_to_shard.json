@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/kyanite"
+            "tag": "forge:crystals/kyanite"
           }
         },
         "maxChance": 10000,

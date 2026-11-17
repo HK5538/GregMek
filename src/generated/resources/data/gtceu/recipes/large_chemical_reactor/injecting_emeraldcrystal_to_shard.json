@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/emerald"
+            "tag": "forge:crystals/emerald"
           }
         },
         "maxChance": 10000,

@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/apatite"
+            "tag": "forge:crystals/apatite"
           }
         },
         "maxChance": 10000,

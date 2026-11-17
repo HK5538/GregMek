@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/nether_quartz"
+            "tag": "forge:crystals/nether_quartz"
           }
         },
         "maxChance": 10000,

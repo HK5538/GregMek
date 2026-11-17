@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/iron"
+            "tag": "forge:crystals/iron"
           }
         },
         "maxChance": 10000,

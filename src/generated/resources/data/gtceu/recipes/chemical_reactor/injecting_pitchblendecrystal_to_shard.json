@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/pitchblende"
+            "tag": "forge:crystals/pitchblende"
           }
         },
         "maxChance": 10000,

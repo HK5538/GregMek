@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/certus_quartz"
+            "tag": "forge:crystals/certus_quartz"
           }
         },
         "maxChance": 10000,

@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/redstone"
+            "tag": "forge:crystals/redstone"
           }
         },
         "maxChance": 10000,

@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/molybdenite"
+            "tag": "forge:crystals/molybdenite"
           }
         },
         "maxChance": 10000,

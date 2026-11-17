@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/tantalite"
+            "tag": "forge:crystals/tantalite"
           }
         },
         "maxChance": 10000,

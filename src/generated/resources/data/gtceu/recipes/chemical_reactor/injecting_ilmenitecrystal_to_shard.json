@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/ilmenite"
+            "tag": "forge:crystals/ilmenite"
           }
         },
         "maxChance": 10000,

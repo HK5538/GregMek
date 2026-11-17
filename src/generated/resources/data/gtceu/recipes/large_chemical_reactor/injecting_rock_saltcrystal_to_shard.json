@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/rock_salt"
+            "tag": "forge:crystals/rock_salt"
           }
         },
         "maxChance": 10000,

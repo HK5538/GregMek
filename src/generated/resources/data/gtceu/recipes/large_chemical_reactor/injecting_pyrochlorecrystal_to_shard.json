@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/pyrochlore"
+            "tag": "forge:crystals/pyrochlore"
           }
         },
         "maxChance": 10000,

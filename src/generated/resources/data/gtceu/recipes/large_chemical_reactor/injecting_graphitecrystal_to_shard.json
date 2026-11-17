@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/graphite"
+            "tag": "forge:crystals/graphite"
           }
         },
         "maxChance": 10000,

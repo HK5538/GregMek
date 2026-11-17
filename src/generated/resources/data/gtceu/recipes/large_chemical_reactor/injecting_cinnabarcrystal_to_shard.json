@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/cinnabar"
+            "tag": "forge:crystals/cinnabar"
           }
         },
         "maxChance": 10000,

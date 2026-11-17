@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/realgar"
+            "tag": "forge:crystals/realgar"
           }
         },
         "maxChance": 10000,

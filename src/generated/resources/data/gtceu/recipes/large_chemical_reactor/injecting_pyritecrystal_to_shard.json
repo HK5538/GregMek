@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/pyrite"
+            "tag": "forge:crystals/pyrite"
           }
         },
         "maxChance": 10000,

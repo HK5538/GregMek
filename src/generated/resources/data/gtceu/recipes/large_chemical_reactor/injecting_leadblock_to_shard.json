@@ -40,7 +40,7 @@
         "chance": 10000,
         "content": {
           "type": "gtceu:sized",
-          "count": 3,
+          "count": 4,
           "ingredient": {
             "item": "gtceu:lead_shard"
           }

@@ -25,7 +25,7 @@
           "type": "gtceu:sized",
           "count": 1,
           "ingredient": {
-            "tag": "forge:ores/bastnasite"
+            "tag": "forge:crystals/bastnasite"
           }
         },
         "maxChance": 10000,

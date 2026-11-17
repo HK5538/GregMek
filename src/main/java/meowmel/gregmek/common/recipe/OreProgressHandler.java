@@ -12,8 +12,6 @@ import mekanism.api.recipes.ingredients.creator.IngredientCreatorAccess;
 import mekanism.common.registries.MekanismGases;
 import meowmel.gregmek.Gregmek;
 import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.world.item.ItemStack;
-import net.minecraft.world.level.block.Blocks;
 import com.lowdragmc.lowdraglib.side.fluid.FluidStack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -36,13 +34,6 @@ public class OreProgressHandler {
 
     public static void recipeOreAddition(Consumer<FinishedRecipe> consumer) {
         String basePath = "processing/";
-
-        // 测试配方
-        ItemStackChemicalToItemStackRecipeBuilder.purifying(
-                IngredientCreatorAccess.item().from(Blocks.DIRT),
-                IngredientCreatorAccess.gas().from(MekanismGases.OXYGEN, 1),
-                new ItemStack(Blocks.OAK_LOG)
-        ).build(consumer, Gregmek.rl(basePath + "test_dirt"));
 
         Collection<Material> materials;
         try {
@@ -77,30 +68,30 @@ public class OreProgressHandler {
     private static void addRecipesForMaterial(Material material, String basePath, Consumer<FinishedRecipe> consumer) {
         String materialName = material.getName();
         OreProperty property = material.getProperty(PropertyKey.ORE);
-        //溶解
-        ORE_WASHER_RECIPES.recipeBuilder("dissolve_ore" + material.getName())
+        //溶解：洗矿厂(fluidOut=0) / 化学浴(fluidIn=1) 都装不下这个工序，改用化学反应釜(2 进 2 出 / 3 流体进 2 流体出)
+        CHEMICAL_RECIPES.recipeBuilder("dissolve_ore" + material.getName())
                 .inputItems(ore, material, 1)
                 .inputFluids(SulfuricAcid.getFluid(100))
                 .outputFluids(FluidStack.create(getDirtySlurryFluid(material), 1000))
                 .duration(25).EUt(VA[LV]).save(consumer);
 
-        ORE_WASHER_RECIPES.recipeBuilder("dissolve_raw" + material.getName())
+        CHEMICAL_RECIPES.recipeBuilder("dissolve_raw" + material.getName())
                 .inputItems(rawOre, material, 3)
                 .inputFluids(SulfuricAcid.getFluid(100))
                 .outputFluids(FluidStack.create(getDirtySlurryFluid(material), 2000))
                 .duration(25).EUt(VA[LV]).save(consumer);
 
-        //清洗
-        CHEMICAL_BATH_RECIPES.recipeBuilder("pure_slurry_" + material.getName() + "_by_wash")
+        //清洗：需要同时输入污浊浆液与水两种流体，用搅拌机(2 流体进 1 流体出)
+        MIXER_RECIPES.recipeBuilder("pure_slurry_" + material.getName() + "_by_wash")
                 .inputFluids(FluidStack.create(getDirtySlurryFluid(material), 100))
                 .inputFluids(Water.getFluid(500))
                 .outputFluids(FluidStack.create(getPureSlurryFluid(material), 100))
                 .duration(10).EUt(VA[LV]).save(consumer);
 
-        //结晶
+        //结晶：200mB 纯净浆液 -> 1 晶体（与 Mekanism 化学结晶器一致，保证整条链 5 倍）
         AUTOCLAVE_RECIPES.recipeBuilder("crystal_" + material.getName() + "_by_pure_slurry")
                 .inputFluids(FluidStack.create(getPureSlurryFluid(material), 200))
-                .outputItems(ChemicalHelper.get(crystal, material, 4))
+                .outputItems(ChemicalHelper.get(crystal, material, 1))
                 .duration(40).EUt(VA[LV]).save(consumer);
 
         /////////////////////////////////////////////////////////////////////////////
@@ -112,7 +103,7 @@ public class OreProgressHandler {
         ).build(consumer, Gregmek.rl(basePath + materialName + "/crystal_to_shard"));
 
         CHEMICAL_RECIPES.recipeBuilder("injecting_" + material.getName() + "crystal_to_shard")
-                .inputItems(ore, material, 1)
+                .inputItems(crystal, material, 1)
                 .inputFluids(HydrochloricAcid.getFluid(200))
                 .outputItems(shard, material, 1)
                 .chancedOutput(dust, property.getOreByProduct(2, material), 3000, 500)
@@ -122,13 +113,13 @@ public class OreProgressHandler {
         ItemStackChemicalToItemStackRecipeBuilder.injecting(
                 IngredientCreatorAccess.item().from(ChemicalHelper.get(TagPrefix.ore, material, 1)),
                 IngredientCreatorAccess.gas().from(MekanismGases.HYDROGEN_CHLORIDE, 1),
-                ChemicalHelper.get(shard, material, 3)
+                ChemicalHelper.get(shard, material, 4)
         ).build(consumer, Gregmek.rl(basePath + materialName + "/block_to_shard"));
 
         CHEMICAL_RECIPES.recipeBuilder("injecting_" + material.getName() + "block_to_shard")
                 .inputItems(ore, material, 1)
                 .inputFluids(HydrochloricAcid.getFluid(200))
-                .outputItems(shard, material, 3)
+                .outputItems(shard, material, 4)
                 .chancedOutput(dust, property.getOreByProduct(2, material), 3000, 500)
                 .duration(25).EUt(VA[LV]).save(consumer);
 
